@@ -5,4 +5,4 @@ The looks would be material design-ish
 
 Actual screenshot
 
-![Alt text](http://i63.tinypic.com/2znpo3s.jpg "Optional title")
+![Alt text](http://i63.tinypic.com/2znpo3s.jpg "Screenshot")

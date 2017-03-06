@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_calculator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.github.laszlo1337.calculator.Calculator">
+
+    
+    <fragment
+        android:id="@+id/fragment_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.github.laszlo1337.calculator.CalculatorScreen"
+        tools:layout="@layout/fragment_display"
+        />
+
+    <fragment
+        android:id="@+id/fragment_input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.github.laszlo1337.calculator.Input"
+        tools:layout="@layout/fragment_input"
+        android:layout_below="@+id/fragment_display"/>
+
+</RelativeLayout>

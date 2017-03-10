@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:elevation="4dp"
     android:background="@color/displayBackgroundColor"
-    tools:context="com.github.laszlo1337.calculator.CalculatorScreen">
+    tools:context="com.github.laszlo1337.calculator.view.CalculatorScreen">
 
     <ScrollView
         android:id="@+id/display"

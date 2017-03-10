@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.github.laszlo1337.calculator.Calculator">
+    tools:context="com.github.laszlo1337.calculator.view.CalculatorActivity">
 
     
     <fragment
         android:id="@+id/fragment_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.github.laszlo1337.calculator.CalculatorScreen"
+        android:name="com.github.laszlo1337.calculator.view.CalculatorScreen"
         tools:layout="@layout/fragment_display"
         />
 
@@ -21,7 +21,7 @@
         android:id="@+id/fragment_input"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.github.laszlo1337.calculator.Input"
+        android:name="com.github.laszlo1337.calculator.view.KeyPad"
         tools:layout="@layout/fragment_input"
         android:layout_below="@+id/fragment_display"/>
 

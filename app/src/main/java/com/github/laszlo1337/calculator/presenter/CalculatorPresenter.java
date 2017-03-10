@@ -1,4 +1,6 @@
-package com.github.laszlo1337.calculator;
+package com.github.laszlo1337.calculator.presenter;
+
+import com.github.laszlo1337.calculator.view.Display;
 
 /**
  * Created by laszlo on 2017-03-06.
@@ -23,7 +25,7 @@ public class CalculatorPresenter implements Presenter {
     }
 
     @Override
-    public void onEvaluate() {
+    public void onSettableButtonClick() {
 
     }
 

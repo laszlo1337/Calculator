@@ -1,4 +1,4 @@
-package com.github.laszlo1337.calculator;
+package com.github.laszlo1337.calculator.view;
 
 
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.github.laszlo1337.calculator.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -20,7 +22,7 @@ public class CalculatorScreen extends Fragment implements Display {
     //public static CalculatorScreen newInstance(){return new CalculatorScreen();}
 
     public CalculatorScreen() {
-        //required empty constructor
+        // Required empty public constructor
     }
 
 

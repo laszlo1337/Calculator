@@ -1,4 +1,4 @@
-package com.github.laszlo1337.calculator;
+package com.github.laszlo1337.calculator.view;
 
 /**
  * Created by laszlo on 2017-03-06.

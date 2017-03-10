@@ -1,4 +1,4 @@
-package com.github.laszlo1337.calculator;
+package com.github.laszlo1337.calculator.presenter;
 
 /**
  * Created by laszlo on 2017-03-06.
@@ -9,7 +9,7 @@ package com.github.laszlo1337.calculator;
 
     void onDecimalClick();
 
-    void onEvaluate();
+    void onSettableButtonClick();
 
     void onOperatorClick(String operator);
 

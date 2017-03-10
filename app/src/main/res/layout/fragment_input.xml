@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:elevation="1dp"
     android:orientation="horizontal"
-    tools:context="com.github.laszlo1337.calculator.Input"
+    tools:context="com.github.laszlo1337.calculator.view.KeyPad"
     android:baselineAligned="false">
 
     <LinearLayout
@@ -185,12 +185,13 @@
             style="@style/ButtonOperation"/>
 
         <Button
-            android:id="@+id/btn_evaluate"
+            android:id="@+id/btn_settable_button"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
             android:text="="
-            style="@style/ButtonOperation"/>
+            style="@style/ButtonOperation"
+            />
 
 
 

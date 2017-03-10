@@ -13,7 +13,7 @@
         android:id="@+id/fragment_display"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:name="com.github.laszlo1337.calculator.view.CalculatorScreen"
+        android:name="com.github.laszlo1337.calculator.view.CalculatorScreenFragment"
         tools:layout="@layout/fragment_display"
         />
 
@@ -21,7 +21,7 @@
         android:id="@+id/fragment_input"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.github.laszlo1337.calculator.view.KeyPad"
+        android:name="com.github.laszlo1337.calculator.view.KeyPadFragment"
         tools:layout="@layout/fragment_input"
         android:layout_below="@+id/fragment_display"/>
 

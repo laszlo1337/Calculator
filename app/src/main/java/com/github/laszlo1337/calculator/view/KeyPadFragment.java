@@ -1,4 +1,4 @@
-package com.github.laszlo1337.calculator;
+package com.github.laszlo1337.calculator.view;
 
 
 import android.os.Bundle;
@@ -8,11 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.github.laszlo1337.calculator.presenter.Presenter;
+import com.github.laszlo1337.calculator.R;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 
-public class Input extends Fragment {
+public class KeyPadFragment extends Fragment {
+
+    public void setPresenter(Presenter presenter) {
+        this.presenter = presenter;
+    }
 
     private Presenter presenter;
 
@@ -32,9 +39,9 @@ public class Input extends Fragment {
         presenter.onDecimalClick();
     }
 
-    @OnClick(R.id.btn_evaluate)
-    public void onEvaluate(Button b){
-        presenter.onEvaluate();
+    @OnClick(R.id.btn_settable_button)
+    public void onSettableButtonClick(Button b){
+        presenter.onSettableButtonClick();
     }
 
     @OnClick(R.id.btn_delete)
@@ -52,14 +59,15 @@ public class Input extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public Input() {
+    public KeyPadFragment() {
         // Required empty public constructor
     }
 
-    //public static Input newInstance(){return new Input();}
+    //public static KeyPadFragment newInstance(){return new KeyPadFragment();}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
 
         View view = inflater.inflate(R.layout.fragment_input, container, false);
         ButterKnife.bind(this,view);

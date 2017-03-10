@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:elevation="1dp"
     android:orientation="horizontal"
-    tools:context="com.github.laszlo1337.calculator.view.KeyPad"
+    tools:context="com.github.laszlo1337.calculator.view.KeyPadFragment"
     android:baselineAligned="false">
 
     <LinearLayout

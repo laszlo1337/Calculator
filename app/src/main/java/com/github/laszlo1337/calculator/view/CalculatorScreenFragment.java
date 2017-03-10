@@ -14,14 +14,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class CalculatorScreen extends Fragment implements Display {
-    @BindView(R.id.display_text)
-    private TextView display;
+public class CalculatorScreenFragment extends Fragment implements Display {
+    @BindView(R.id.display_text) TextView display;
 
 
-    //public static CalculatorScreen newInstance(){return new CalculatorScreen();}
+    //public static CalculatorScreenFragment newInstance(){return new CalculatorScreenFragment();}
 
-    public CalculatorScreen() {
+    public CalculatorScreenFragment() {
         // Required empty public constructor
     }
 

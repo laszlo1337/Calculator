@@ -8,8 +8,17 @@ public class CalculatorLogic {
 
     private CalculatorMode calculatorMode;
     private String currentExpression;
+    private CalculationResultRelay calculationResultRelay;
 
-    public CalculatorLogic(){
+    public interface CalculationResultRelay {
+        void onResultObtained(boolean isValid, String result);
+    }
+
+    public void setCalculationResultListener(CalculationResultRelay result) {
+        this.calculationResultRelay = result;
+    }
+
+    public CalculatorLogic() {
         this.currentExpression = "0";
     }
 
@@ -17,15 +26,26 @@ public class CalculatorLogic {
         this.calculatorMode = calculatorMode;
     }
 
-    public void deleteCharacter(){
+    public void deleteCharacter() {
+        if (currentExpression.length() > 1) {
+            currentExpression = currentExpression.substring(0, currentExpression.length() - 1);
+            calculationResultRelay.onResultObtained(true, currentExpression);
+        } else if (currentExpression.length() == 1) {
+            currentExpression = "0";
+            calculationResultRelay.onResultObtained(true, currentExpression);
+        }
+    }
+
+    public void deleteExpression() {
+        currentExpression = "0";
+        calculationResultRelay.onResultObtained(true, currentExpression);
+    }
+
+    public void appendNumber(String number) {
 
     }
 
-    public void deleteExpression(){
-
-    }
-
-    public void appendNumber{
+    public void appendDecimal() {
 
     }
 }

@@ -16,4 +16,13 @@ package com.github.laszlo1337.calculator.presenter;
     void onDeleteClick();
 
     void onClearExpression();
+
+   interface ModeSelectorRelay{
+       void selectBasicMode();
+       void selectRpnMode();
+   }
+
+   interface SettableButtonSwitch{
+       void switchButtonRole(int mode);
+   }
 }

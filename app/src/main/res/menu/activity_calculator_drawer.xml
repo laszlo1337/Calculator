@@ -4,30 +4,15 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_1"
+            android:id="@+id/mode_basic"
             android:icon="@drawable/ic_menu_manage"
-            android:title="mode1" />
+            android:title="basic mode" />
         <item
-            android:id="@+id/nav_2"
+            android:id="@+id/mode_rpn"
             android:icon="@drawable/ic_menu_manage"
-            android:title="mode2" />
-        <item
-            android:id="@+id/nav_3"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="options" />
+            android:title="RPN mode" />
     </group>
 
-    <item android:title="misc">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Donate" />
-        </menu>
-    </item>
+
 
 </menu>

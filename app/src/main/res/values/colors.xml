@@ -7,4 +7,5 @@
     <color name="buttonPressedDark">#313131</color>
     <color name="buttonOperationsTopPressed">#00BFA5</color>
     <color name="buttonPressedLight">#515151</color>
+    <color name="displayDigitsColor">#FAFAFA</color>
 </resources>

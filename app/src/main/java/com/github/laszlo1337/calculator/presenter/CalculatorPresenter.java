@@ -7,19 +7,20 @@ import com.github.laszlo1337.calculator.view.Display;
  * Created by laszlo on 2017-03-06.
  */
 
-public class CalculatorPresenter implements Presenter, CalculatorLogic.CalculationResultRelay {
+public class CalculatorPresenter implements Presenter, Presenter.ModeSelectorRelay, CalculatorLogic.CalculationResultRelay {
+
+    private static final int MODE_BASIC = 1;
+    private static final int MODE_RPN = 0;
 
     private Display display;
     private CalculatorLogic calculatorLogic;
+    private Presenter.SettableButtonSwitch buttonSwitch;
 
-    public CalculatorPresenter(Display display){
+    public CalculatorPresenter(Display display, Presenter.SettableButtonSwitch buttonSwitch){
+        this.buttonSwitch = buttonSwitch;
         this.display = display;
         this.calculatorLogic = new CalculatorLogic();
         calculatorLogic.setCalculationResultListener(this);
-    }
-
-    public void setDisplay(Display display){
-        this.display = display;
     }
 
     @Override
@@ -59,4 +60,19 @@ public class CalculatorPresenter implements Presenter, CalculatorLogic.Calculati
             display.showCalculationResult(result);
         }
     }
+
+    @Override
+    public void selectBasicMode() {
+       // calculatorLogic.setCalculatorMode();
+        buttonSwitch.switchButtonRole(MODE_BASIC);
+        display.setRpnIndicator(false);
+    }
+
+    @Override
+    public void selectRpnMode() {
+       // calculatorLogic.setCalculatorMode();
+        buttonSwitch.switchButtonRole(MODE_RPN);
+        display.setRpnIndicator(true);
+    }
+
 }

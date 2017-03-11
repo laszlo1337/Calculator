@@ -2,27 +2,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:elevation="4dp"
     android:background="@color/displayBackgroundColor"
+    android:elevation="4dp"
     tools:context="com.github.laszlo1337.calculator.view.CalculatorScreenFragment">
+
+    <TextView
+        android:id="@+id/display_rpn_mode_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/rpn_indicator_height"
+        android:paddingLeft="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Notification"
+        android:textColor="@color/displayDigitsColor" />
 
     <ScrollView
         android:id="@+id/display"
         android:layout_width="match_parent"
-        android:layout_height="156dp">
+        android:layout_height="@dimen/display_scrollview_height">
 
         <TextView
-            android:id="@+id/display_text"
-            android:layout_width="wrap_content"
-            android:layout_height="128dp"
-            android:textSize="56sp"
+            android:id="@+id/display_textview"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/display_textview_height"
             android:layout_gravity="end"
+            android:paddingLeft="@dimen/standard_margin"
+            android:paddingRight="@dimen/standard_margin"
             android:textAlignment="textEnd"
-            android:paddingLeft="16dp"
-            tools:text="7+13+19"
-            android:text="7+13+19+6478 = 4444"
-            android:textColor="#FAFAFA"
-            />
+            android:textColor="@color/displayDigitsColor"
+            android:textSize="56sp"
+            tools:text="7+13+19" />
 
     </ScrollView>
 

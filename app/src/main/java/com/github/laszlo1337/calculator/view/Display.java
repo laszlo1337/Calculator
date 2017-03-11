@@ -6,4 +6,5 @@ package com.github.laszlo1337.calculator.view;
 
 public interface Display {
     void showCalculationResult(String result);
+    void setRpnIndicator(boolean isOn);
 }

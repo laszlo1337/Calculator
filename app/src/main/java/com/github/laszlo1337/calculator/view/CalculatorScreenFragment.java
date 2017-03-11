@@ -15,8 +15,8 @@ import butterknife.ButterKnife;
 
 
 public class CalculatorScreenFragment extends Fragment implements Display {
-    @BindView(R.id.display_text) TextView display;
-
+    @BindView(R.id.display_textview) TextView display;
+    @BindView(R.id.display_rpn_mode_indicator)TextView rpnIndicator;
 
     //public static CalculatorScreenFragment newInstance(){return new CalculatorScreenFragment();}
 
@@ -26,11 +26,10 @@ public class CalculatorScreenFragment extends Fragment implements Display {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_display, container, false);
         ButterKnife.bind(this,view);
-
         return view;
     }
 
@@ -38,5 +37,14 @@ public class CalculatorScreenFragment extends Fragment implements Display {
     @Override
     public void showCalculationResult(String result) {
         display.setText(result);
+    }
+
+    @Override
+    public void setRpnIndicator(boolean isOn) {
+        if(isOn){
+            rpnIndicator.setText("RPN");
+        } else {
+            rpnIndicator.setText("");
+        }
     }
 }

@@ -10,7 +10,7 @@
                 android:valueTo="1"
                 android:valueType="floatType" />
             <objectAnimator
-                android:duration="0"
+                android:duration="1"
                 android:propertyName="elevation"
                 android:valueTo="10dp"
                 android:valueType="floatType" />
@@ -26,9 +26,9 @@
                 android:valueTo="0"
                 android:valueType="floatType" />
             <objectAnimator
-                android:duration="0"
+                android:duration="1"
                 android:propertyName="elevation"
-                android:valueTo="20dp"
+                android:valueTo="10dp"
                 android:valueType="floatType" />
         </set>
     </item>

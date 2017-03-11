@@ -3,7 +3,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="mode_basic">=</string>
+    <string name="mode_rpn">enter</string>
     <string name="action_settings">Settings</string>
+    <string name="e_mail">leszek.janiszewski@outlook.com</string>
 
 </resources>

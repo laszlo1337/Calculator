@@ -2,58 +2,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     android:elevation="1dp"
     android:orientation="horizontal"
-    tools:context="com.github.laszlo1337.calculator.view.KeyPadFragment"
-    android:baselineAligned="false">
+    tools:context="com.github.laszlo1337.calculator.view.KeyPadFragment">
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btn_clear"
+            style="@style/ButtonOperationTop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="c"
-            style="@style/ButtonOperationTop"/>
+            android:text="c" />
 
         <Button
             android:id="@+id/btn_number_seven"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="7"
-            style="@style/ButtonNumberPad"/>
+            android:text="7" />
 
         <Button
             android:id="@+id/btn_number_four"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="4"
-            style="@style/ButtonNumberPad"/>
+            android:text="4" />
 
         <Button
             android:id="@+id/btn_number_one"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="1"
-            style="@style/ButtonNumberPad"/>
+            android:text="1" />
 
         <Button
             android:id="@+id/btn_empty"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text=""
             android:clickable="false"
-            style="@style/ButtonNumberPad"/>
+            android:text="" />
 
     </LinearLayout>
 
@@ -65,43 +64,43 @@
 
         <Button
             android:id="@+id/btn_divide"
+            style="@style/ButtonOperationTop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="/"
-            style="@style/ButtonOperationTop"/>
+            android:text="/" />
 
         <Button
             android:id="@+id/btn_number_eight"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="8"
-            style="@style/ButtonNumberPad"/>
+            android:text="8" />
 
         <Button
             android:id="@+id/btn_number_five"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="5"
-            style="@style/ButtonNumberPad"/>
+            android:text="5" />
 
         <Button
             android:id="@+id/btn_number_two"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="2"
-            style="@style/ButtonNumberPad"/>
+            android:text="2" />
 
         <Button
             android:id="@+id/btn_number_zero"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="0"
-            style="@style/ButtonNumberPad"/>
+            android:text="0" />
 
     </LinearLayout>
 
@@ -113,43 +112,43 @@
 
         <Button
             android:id="@+id/btn_multiply"
+            style="@style/ButtonOperationTop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="*"
-            style="@style/ButtonOperationTop"/>
+            android:text="*" />
 
         <Button
             android:id="@+id/btn_number_nine"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="9"
-            style="@style/ButtonNumberPad"/>
+            android:text="9" />
 
         <Button
             android:id="@+id/btn_number_six"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="6"
-            style="@style/ButtonNumberPad"/>
+            android:text="6" />
 
         <Button
             android:id="@+id/btn_number_three"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="3"
-            style="@style/ButtonNumberPad"/>
+            android:text="3" />
 
         <Button
             android:id="@+id/btn_period"
+            style="@style/ButtonNumberPad"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="."
-            style="@style/ButtonNumberPad"
             tools:ignore="HardcodedText" />
 
     </LinearLayout>
@@ -162,28 +161,29 @@
 
         <Button
             android:id="@+id/btn_delete"
+            style="@style/ButtonOperationTop"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="⌫"
-            style="@style/ButtonOperationTop"/>
+            android:text="⌫" />
 
         <Button
             android:id="@+id/btn_subtract"
+            style="@style/ButtonOperation"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="-"
-            style="@style/ButtonOperation"
             tools:ignore="HardcodedText" />
 
         <Button
             android:id="@+id/btn_add"
+            style="@style/ButtonOperation"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="+"
-            style="@style/ButtonOperation"/>
+            android:text="+" />
+
 
         <Button
             android:id="@+id/btn_settable_button"
@@ -191,10 +191,9 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:text="="
+            android:lineSpacingMultiplier="0.8"
             style="@style/ButtonOperation"
             />
-
-
 
     </LinearLayout>
 

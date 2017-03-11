@@ -7,21 +7,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.github.laszlo1337.calculator.R;
 import com.github.laszlo1337.calculator.presenter.CalculatorPresenter;
 import com.github.laszlo1337.calculator.presenter.Presenter;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CalculatorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    Presenter.ModeSelectorRelay selectMode;
-
+    private Presenter.ModeSelectorRelay selectMode;
+    @BindView(R.id.drawer_layout)DrawerLayout drawer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ButterKnife.bind(this);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
@@ -38,7 +42,6 @@ public class CalculatorActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -49,7 +52,6 @@ public class CalculatorActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        DrawerLayout drawer = (DrawerLayout)findViewById(R.id.drawer_layout);
         int id = item.getItemId();
         if (id == R.id.mode_basic) {
             selectMode.selectBasicMode();

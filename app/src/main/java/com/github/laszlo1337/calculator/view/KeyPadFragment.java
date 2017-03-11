@@ -3,6 +3,7 @@ package com.github.laszlo1337.calculator.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,15 +82,14 @@ public class KeyPadFragment extends Fragment implements Presenter.SettableButton
     @Override
     public void switchButtonRole(int mode) {
         switch (mode) {
-            case 0:
-                settableButton.setText(R.string.mode_rpn);
-                settableButton.setTextSize(14);
             case 1:
+                settableButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 34);
                 settableButton.setText(R.string.mode_basic);
-                settableButton.setTextSize(34);
-            default:
+                break;
+            case 0:
+                settableButton.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                 settableButton.setText(R.string.mode_rpn);
-                settableButton.setTextSize(14);
+                break;
         }
     }
 }

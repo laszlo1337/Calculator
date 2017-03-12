@@ -1,29 +1,15 @@
 package com.github.laszlo1337.calculator.model;
 
-/**
- * Created by laszlo on 2017-03-06.
- */
+import com.github.laszlo1337.calculator.presenter.mode.CalculatorMode;
 
-public class CalculatorLogic {
+public final class CalculatorModel {
 
-    private CalculatorMode calculatorMode;
     private String currentExpression;
+    private CalculatorMode calculatorMode;
     private CalculationResultRelay calculationResultRelay;
 
-    public interface CalculationResultRelay {
-        void onResultObtained(boolean isValid, String result);
-    }
-
-    public void setCalculationResultListener(CalculationResultRelay result) {
-        this.calculationResultRelay = result;
-    }
-
-    public CalculatorLogic() {
+    public CalculatorModel() {
         this.currentExpression = "0";
-    }
-
-    public void setCalculatorMode(CalculatorMode calculatorMode) {
-        this.calculatorMode = calculatorMode;
     }
 
     public void deleteCharacter() {
@@ -47,5 +33,13 @@ public class CalculatorLogic {
 
     public void appendDecimal() {
 
+    }
+
+    public void setCalculatorMode(CalculatorMode calculatorMode) {
+        this.calculatorMode = calculatorMode;
+    }
+
+    public void setCalculationResultListener(CalculationResultRelay result) {
+        this.calculationResultRelay = result;
     }
 }

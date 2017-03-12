@@ -5,7 +5,7 @@
     android:baselineAligned="false"
     android:elevation="1dp"
     android:orientation="horizontal"
-    tools:context="com.github.laszlo1337.calculator.view.KeyPadFragment">
+    tools:context="com.github.laszlo1337.calculator.view.CalculatorActivity">
 
     <LinearLayout
         android:layout_width="0dp"

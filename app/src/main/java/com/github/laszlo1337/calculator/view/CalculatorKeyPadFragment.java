@@ -53,7 +53,7 @@ public final class CalculatorKeyPadFragment extends Fragment implements Calculat
         }
     }
 
-    @OnClick({R.id.btn_number_one, R.id.btn_number_two, R.id.btn_number_three, R.id.btn_number_four,
+    @OnClick({R.id.btn_number_one, R.id.btn_number_two, R.id.btn_number_three, R.id.btn_number_four, R.id.btn_number_five,
             R.id.btn_number_six, R.id.btn_number_seven, R.id.btn_number_eight, R.id.btn_number_nine, R.id.btn_number_zero})
     @Override
     public void onNumberClick(Button button) {

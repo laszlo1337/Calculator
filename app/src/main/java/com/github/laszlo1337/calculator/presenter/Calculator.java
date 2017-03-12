@@ -46,17 +46,17 @@ public final class Calculator implements CalculatorPresenter, CalculatorPresente
 
     @Override
     public void onDecimalClick() {
-
+        calculatorModel.appendDecimal();
     }
 
     @Override
     public void onSettableButtonClick() {
-
+        calculatorModel.performSettableButtonAction();
     }
 
     @Override
     public void onOperatorClick(String operator) {
-
+        calculatorModel.performOperatorAction(operator);
     }
 
     @Override

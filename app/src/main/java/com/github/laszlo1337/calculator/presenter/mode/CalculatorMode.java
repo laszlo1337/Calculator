@@ -5,6 +5,7 @@ package com.github.laszlo1337.calculator.presenter.mode;
  */
 
 public interface CalculatorMode {
+    void setCurrentExpression(StringBuilder expression);
     void performOperatorAction();
     void performSettableButtonAction();
     void validateExpression();

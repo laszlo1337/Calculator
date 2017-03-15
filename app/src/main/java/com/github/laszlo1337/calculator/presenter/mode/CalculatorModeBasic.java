@@ -1,30 +1,24 @@
 package com.github.laszlo1337.calculator.presenter.mode;
 
+import com.github.laszlo1337.calculator.model.RpnCalculator;
+
 public final class CalculatorModeBasic implements CalculatorMode {
 
-    private StringBuilder currentExpression;
+    private final RpnCalculator rpnCalculator;
 
-    /**
-     *
-     */
-    @Override
-    public void performOperatorAction() {
-
+    public CalculatorModeBasic(RpnCalculator rpnCalculator) {
+        this.rpnCalculator = rpnCalculator;
     }
 
     @Override
-    public void performSettableButtonAction() {
-
+    public String performOperatorAction(String operator, String expression) {
+        return null;
     }
 
     @Override
-    public void validateExpression() {
-
+    public String performSettableButtonAction(String expression) {
+        return null;
     }
 
 
-    @Override
-    public void setCurrentExpression(StringBuilder expression) {
-        this.currentExpression = expression;
-    }
 }

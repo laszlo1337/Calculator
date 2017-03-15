@@ -12,7 +12,17 @@ public class RpnCalculator {
     Stack<String> operands;
 
     public RpnCalculator(){
+        this.operators = new Stack<>();
+        this.operands = new Stack<>();
+    }
 
+
+    public void push(String operand){
+        operands.push(operand);
+    }
+
+    public String evaluate(){
+        return null;
     }
 
 }

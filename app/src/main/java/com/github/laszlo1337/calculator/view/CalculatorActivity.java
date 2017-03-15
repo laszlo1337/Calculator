@@ -38,6 +38,7 @@ public final class CalculatorActivity extends AppCompatActivity implements Navig
         Calculator presenter = new Calculator(calculatorDisplayFragment, calculatorKeyPadFragment);
         calculatorKeyPadFragment.setCalculatorPresenter(presenter);
         selectMode = presenter;
+        selectMode.selectRpnMode();
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.github.laszlo1337.calculator.presenter;
 
 import com.github.laszlo1337.calculator.model.CalculationResultRelay;
 import com.github.laszlo1337.calculator.model.CalculatorModel;
+import com.github.laszlo1337.calculator.model.RpnCalculator;
 import com.github.laszlo1337.calculator.presenter.mode.CalculatorModeBasic;
 import com.github.laszlo1337.calculator.presenter.mode.CalculatorModeReversedPolishNotation;
 import com.github.laszlo1337.calculator.presenter.mode.Mode;
@@ -17,6 +18,7 @@ public final class Calculator implements CalculatorPresenter, CalculatorPresente
     private CalculatorDisplayView calculatorDisplayView;
     private CalculatorKeyPadView calculatorKeyPadView;
     private CalculatorModel calculatorModel;
+    private RpnCalculator rpnCalculator;
 
     private CalculatorModeBasic calculatorModeBasic;
     private CalculatorModeReversedPolishNotation calculatorModeReversedPolishNotation;
@@ -35,8 +37,9 @@ public final class Calculator implements CalculatorPresenter, CalculatorPresente
         this.calculatorKeyPadView = calculatorKeyPadView;
         this.calculatorModel = new CalculatorModel();
         this.calculatorModel.setCalculationResultListener(calculationResultRelay);
-        this.calculatorModeBasic = new CalculatorModeBasic();
-        this.calculatorModeReversedPolishNotation = new CalculatorModeReversedPolishNotation();
+        this.rpnCalculator = new RpnCalculator();
+        this.calculatorModeBasic = new CalculatorModeBasic(rpnCalculator);
+        this.calculatorModeReversedPolishNotation = new CalculatorModeReversedPolishNotation(rpnCalculator);
     }
 
     @Override

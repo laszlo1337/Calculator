@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="wrap_content"
     android:background="@color/displayBackgroundColor"
     android:elevation="4dp"
     tools:context="com.github.laszlo1337.calculator.view.CalculatorDisplayFragment">
@@ -16,7 +16,7 @@
         android:textColor="@color/displayDigitsColor" />
 
     <ScrollView
-        android:id="@+id/calculatorDisplay"
+        android:id="@+id/display_scrollview"
         android:layout_width="match_parent"
         android:layout_height="@dimen/display_scrollview_height"
         >
@@ -25,13 +25,13 @@
             android:id="@+id/display_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textDirection="rtl"
             android:paddingLeft="@dimen/standard_margin"
             android:paddingRight="@dimen/standard_margin"
             android:textColor="@color/displayDigitsColor"
             android:textSize="56sp"
-            tools:text="7+13+19"
-            android:layout_gravity="bottom"/>
+            android:gravity="bottom|end"
+            android:lineSpacingMultiplier="0.9"
+            android:paddingTop="80dp"/>
 
     </ScrollView>
 

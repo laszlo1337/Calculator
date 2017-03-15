@@ -3,9 +3,12 @@ package com.github.laszlo1337.calculator.view;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.github.laszlo1337.calculator.R;
@@ -17,7 +20,8 @@ public final class CalculatorDisplayFragment extends Fragment implements Calcula
 
     @BindView(R.id.display_textview)
     TextView displayTextView;
-
+    @BindView(R.id.display_scrollview)
+    ScrollView scrollView;
     @BindView(R.id.display_rpn_mode_indicator)
     TextView rpnIndicator;
 
@@ -29,12 +33,14 @@ public final class CalculatorDisplayFragment extends Fragment implements Calcula
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_display, container, false);
         ButterKnife.bind(this, view);
+
         return view;
     }
 
     @Override
     public void showCalculationResult(String result) {
         displayTextView.setText(result);
+        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
     }
 
     @Override

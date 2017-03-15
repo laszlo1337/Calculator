@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item
+        android:enabled="false"
+        android:title="available modes:"
+        android:icon="@drawable/ic_menu_manage"
+        />
+
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/mode_basic"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="basic mode" />
-        <item
             android:id="@+id/mode_rpn"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="RPN mode" />
-    </group>
+            android:icon="@drawable/ic_menu_share"
+            android:title="RPN mode (default)" />
+        <item
+            android:id="@+id/mode_basic"
+            android:icon="@drawable/ic_menu_send"
+            android:title="basic mode" />
 
+    </group>
 
 
 </menu>

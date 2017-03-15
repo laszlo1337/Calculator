@@ -9,7 +9,7 @@ import java.util.Stack;
 public class CalculatorModeReversedPolishNotation implements CalculatorMode {
 
     private final RpnCalculator rpnCalculator;
-    private final String NEXT_LINE = "\n";
+    private final String LINE_BREAK = "\n";
 
     public CalculatorModeReversedPolishNotation(RpnCalculator rpnCalculator) {
         this.rpnCalculator = rpnCalculator;
@@ -17,6 +17,7 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
 
     @Override
     public String performOperatorAction(String operator, String expression) {
+        // TODO: 2017-03-15 move this code to RpnCalculator class
         Stack<String> stack = new Stack<>();
         String[] args = expression.split("\n");
         for (String s : args) {
@@ -31,40 +32,28 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
             double arg1 = Double.parseDouble(stack.pop());
             double arg2 = Double.parseDouble(stack.pop());
             result = arg1 + arg2;
-//            final int i = (int) f;
-//            if (f == i) {
-//                return Integer.toString(i);
-//            }
-//
-//            return Double.toString(f);
-            stack.push(Double.toString(result));
+            stack.push(format(result));
         } else if (operator.equals("-")) {
             double arg2 = Double.parseDouble(stack.pop());
             double arg1 = Double.parseDouble(stack.pop());
-
             result = arg1 - arg2;
-
-            stack.push(Double.toString(result));
+            stack.push(format(result));
         } else if (operator.equals("*")) {
             double arg2 = Double.parseDouble(stack.pop());
             double arg1 = Double.parseDouble(stack.pop());
-
             result = arg1 * arg2;
-
-            stack.push(Double.toString(result));
+            stack.push(format(result));
         } else if (operator.equals("/")) {
             double arg2 = Double.parseDouble(stack.pop());
             double arg1 = Double.parseDouble(stack.pop());
-
             result = arg1 / arg2;
-
-            stack.push(Double.toString(result));
+            stack.push(format(result));
         }
         String[] resultArgs = new String[stack.size()];
         stack.toArray(resultArgs);
 
         for (String s : resultArgs) {
-            resultExpression.append(s + NEXT_LINE);
+            resultExpression.append(s + LINE_BREAK);
         }
 
         return resultExpression.toString();
@@ -72,10 +61,18 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
 
     @Override
     public String performSettableButtonAction(String expression) {
-        if (expression.endsWith("\n") || expression.isEmpty()) {
+        if (expression.endsWith(LINE_BREAK) || expression.isEmpty()) {
             return expression;
         }
-        return expression.concat(NEXT_LINE);
+        return expression.concat(LINE_BREAK);
+    }
+
+    private String format(final double d) {
+        final int i = (int) d;
+        if (d == i) {
+            return Integer.toString(i);
+        }
+        return Double.toString(d);
     }
 
 

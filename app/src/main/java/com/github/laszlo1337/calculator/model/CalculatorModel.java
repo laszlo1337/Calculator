@@ -77,6 +77,9 @@ public final class CalculatorModel {
         if (exp.length() > 0 && isANumber(exp.substring(exp.length() - 1))) {
             exp += ".";
             calculationResultRelay.onResultObtained(true, exp);
+        } else if (exp.isEmpty()) {
+            exp += "0.";
+            calculationResultRelay.onResultObtained(true, exp);
         }
     }
 

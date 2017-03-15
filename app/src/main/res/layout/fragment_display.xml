@@ -31,7 +31,7 @@
             android:textSize="56sp"
             android:gravity="bottom|end"
             android:lineSpacingMultiplier="0.9"
-            android:paddingTop="80dp"/>
+            android:paddingTop="80dp" />
 
     </ScrollView>
 

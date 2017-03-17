@@ -78,6 +78,7 @@ public final class Calculator implements CalculatorPresenter, CalculatorPresente
         calculatorKeyPadView.switchButtonRole(Mode.MODE_BASIC);
         calculatorDisplayView.setRpnIndicator(false);
         calculatorModel.setCalculatorMode(calculatorModeBasic);
+        calculatorModel.resetCalculatorState();
     }
 
     @Override
@@ -85,6 +86,7 @@ public final class Calculator implements CalculatorPresenter, CalculatorPresente
         calculatorKeyPadView.switchButtonRole(Mode.MODE_RPN);
         calculatorDisplayView.setRpnIndicator(true);
         calculatorModel.setCalculatorMode(calculatorModeReversedPolishNotation);
+        calculatorModel.resetCalculatorState();
     }
 
 }

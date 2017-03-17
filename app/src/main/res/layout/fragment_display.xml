@@ -25,13 +25,13 @@
             android:id="@+id/display_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/standard_margin"
-            android:paddingRight="@dimen/standard_margin"
+            android:paddingRight="8dp"
             android:textColor="@color/displayDigitsColor"
-            android:textSize="56sp"
-            android:gravity="bottom|end"
+            android:textSize="46sp"
+            android:gravity="end"
             android:lineSpacingMultiplier="0.9"
-            android:paddingTop="80dp" />
+            android:paddingTop="94dp"
+            />
 
     </ScrollView>
 

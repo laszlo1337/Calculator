@@ -6,7 +6,7 @@ public final class Mode {
     public static final int MODE_RPN = 0;
 
     private Mode() {
-        // need an empty private constructor
+        // needs an empty private constructor
     }
 
 }

@@ -3,9 +3,10 @@ package com.github.laszlo1337.calculator.model;
 
 import com.github.laszlo1337.calculator.presenter.mode.CalculatorMode;
 
+import static com.github.laszlo1337.calculator.model.Symbols.MINUS;
+
 public final class CalculatorModel {
     private final String DEFAULT_CALCULATOR_STATE = "0";
-    public static final String MINUS = "-";
 
     //renamed currentExpression to exp because it was too long//
     private String exp = "";
@@ -42,6 +43,9 @@ public final class CalculatorModel {
 
     public void deleteCharacter() {
         if (exp.length() > 1) {
+            /**
+             * if decimal is present, delete two characters. 3.1 becomes 3
+             */
             if (exp.lastIndexOf(".") == exp.length() - 2) {
                 exp = exp.substring(0, exp.length() - 2);
                 calculationResultRelay.onResultObtained(true, exp);
@@ -53,6 +57,10 @@ public final class CalculatorModel {
             exp = exp.substring(0, exp.length() - 1);
             calculationResultRelay.onResultObtained(true, DEFAULT_CALCULATOR_STATE);
         }
+    }
+
+    public void resetCalculatorState(){
+        this.deleteExpression();
     }
 
     public void deleteExpression() {
@@ -71,6 +79,7 @@ public final class CalculatorModel {
             exp += number;
             calculationResultRelay.onResultObtained(true, exp);
         }
+
     }
 
     public void appendDecimal() {

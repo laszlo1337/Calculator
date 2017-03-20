@@ -11,6 +11,8 @@ public final class Symbols {
     public static final String MINUS = "-";
     public static final String DIVISION = "/";
     public static final String MULTIPLICATION = "*";
+    public static final String SPACE = " ";
+    public static final String DECIMAL_POINT = ".";
 
 
     private Symbols(){}

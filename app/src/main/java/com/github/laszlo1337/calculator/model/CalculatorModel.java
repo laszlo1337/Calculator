@@ -3,28 +3,29 @@ package com.github.laszlo1337.calculator.model;
 
 import com.github.laszlo1337.calculator.presenter.mode.CalculatorMode;
 
+import static com.github.laszlo1337.calculator.model.Symbols.DECIMAL_POINT;
+import static com.github.laszlo1337.calculator.model.Symbols.LINE_BREAK;
 import static com.github.laszlo1337.calculator.model.Symbols.MINUS;
 
 public final class CalculatorModel {
     private final String DEFAULT_CALCULATOR_STATE = "0";
 
     //renamed currentExpression to exp because it was too long//
-    private String exp = "";
+    private String exp;
     private CalculatorMode calculatorMode;
     private CalculationResultRelay calculationResultRelay;
 
     public CalculatorModel() {
-
+        exp = "";
     }
 
 
     public void performOperatorAction(String operator) {
-        if (operator.equals(MINUS) && (exp.isEmpty() || exp.endsWith("\n"))) {
+        if (operator.equals(MINUS) && (exp.isEmpty() || exp.endsWith(LINE_BREAK))) {
             exp += MINUS;
-            calculationResultRelay.onResultObtained(true, exp);
-            return;
+        } else {
+            exp = calculatorMode.performOperatorAction(operator, exp);
         }
-        exp = calculatorMode.performOperatorAction(operator, exp);
         calculationResultRelay.onResultObtained(true, exp);
     }
 
@@ -34,7 +35,7 @@ public final class CalculatorModel {
     }
 
 
-    public boolean isANumber(String number) {
+    public boolean isADigit(String number) {
         if (number.matches("\\d")) {
             return true;
         }
@@ -42,20 +43,19 @@ public final class CalculatorModel {
     }
 
     public void deleteCharacter() {
-        if (exp.length() > 1) {
+        if (exp.length() == 1) {
+            exp = exp.substring(0, exp.length() - 1);
+            calculationResultRelay.onResultObtained(true, DEFAULT_CALCULATOR_STATE);
+        } else if (exp.length() > 1) {
             /**
              * if decimal is present, delete two characters. 3.1 becomes 3
              */
-            if (exp.lastIndexOf(".") == exp.length() - 2) {
+            if (exp.lastIndexOf(DECIMAL_POINT) == exp.length() - 2) {
                 exp = exp.substring(0, exp.length() - 2);
-                calculationResultRelay.onResultObtained(true, exp);
             } else {
                 exp = exp.substring(0, exp.length() - 1);
-                calculationResultRelay.onResultObtained(true, exp);
             }
-        } else if (exp.length() == 1) {
-            exp = exp.substring(0, exp.length() - 1);
-            calculationResultRelay.onResultObtained(true, DEFAULT_CALCULATOR_STATE);
+            calculationResultRelay.onResultObtained(true, exp);
         }
     }
 
@@ -83,13 +83,12 @@ public final class CalculatorModel {
     }
 
     public void appendDecimal() {
-        if (exp.length() > 0 && isANumber(exp.substring(exp.length() - 1))) {
+        if (exp.length() > 0 && isADigit(exp.substring(exp.length() - 1))) {
             exp += ".";
-            calculationResultRelay.onResultObtained(true, exp);
         } else if (exp.isEmpty()) {
             exp += "0.";
-            calculationResultRelay.onResultObtained(true, exp);
         }
+        calculationResultRelay.onResultObtained(true, exp);
     }
 
     public void setCalculatorMode(CalculatorMode calculatorMode) {

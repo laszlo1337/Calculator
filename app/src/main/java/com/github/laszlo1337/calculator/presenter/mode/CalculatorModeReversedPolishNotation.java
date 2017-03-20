@@ -24,6 +24,7 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
             return expression;
         }
         expression += LINE_BREAK;
+        rpnCalculator.evaluateInfixExpression("-2 + 6 * 8 / 3 * 18 - 33 / 3 - 11");
         return expression;
     }
 

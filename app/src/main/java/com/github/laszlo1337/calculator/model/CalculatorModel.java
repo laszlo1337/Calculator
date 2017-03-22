@@ -3,12 +3,12 @@ package com.github.laszlo1337.calculator.model;
 
 import com.github.laszlo1337.calculator.presenter.mode.CalculatorMode;
 
-import static com.github.laszlo1337.calculator.model.Symbols.DECIMAL_POINT;
-import static com.github.laszlo1337.calculator.model.Symbols.LINE_BREAK;
-import static com.github.laszlo1337.calculator.model.Symbols.MINUS;
+import static com.github.laszlo1337.calculator.model.Helpers.DEFAULT_CALCULATOR_STATE;
+import static com.github.laszlo1337.calculator.model.Helpers.LINE_BREAK;
+import static com.github.laszlo1337.calculator.model.Helpers.MINUS;
 
 public final class CalculatorModel {
-    private final String DEFAULT_CALCULATOR_STATE = "0";
+
 
     //renamed currentExpression to exp because it was too long//
     private String exp;
@@ -35,31 +35,17 @@ public final class CalculatorModel {
     }
 
 
-    public boolean isADigit(String number) {
-        if (number.matches("\\d")) {
-            return true;
-        }
-        return false;
-    }
-
     public void deleteCharacter() {
-        if (exp.length() == 1) {
-            exp = exp.substring(0, exp.length() - 1);
+        exp = calculatorMode.deleteCharacter(exp);
+        if (exp.isEmpty()) {
             calculationResultRelay.onResultObtained(true, DEFAULT_CALCULATOR_STATE);
-        } else if (exp.length() > 1) {
-            /**
-             * if decimal is present, delete two characters. 3.1 becomes 3
-             */
-            if (exp.lastIndexOf(DECIMAL_POINT) == exp.length() - 2) {
-                exp = exp.substring(0, exp.length() - 2);
-            } else {
-                exp = exp.substring(0, exp.length() - 1);
-            }
+        } else {
             calculationResultRelay.onResultObtained(true, exp);
         }
+
     }
 
-    public void resetCalculatorState(){
+    public void resetCalculatorState() {
         this.deleteExpression();
     }
 
@@ -83,12 +69,12 @@ public final class CalculatorModel {
     }
 
     public void appendDecimal() {
-        if (exp.length() > 0 && isADigit(exp.substring(exp.length() - 1))) {
-            exp += ".";
-        } else if (exp.isEmpty()) {
-            exp += "0.";
-        }
+        exp = calculatorMode.appendDecimal(exp);
         calculationResultRelay.onResultObtained(true, exp);
+    }
+
+    public static boolean isADigit(String number) {
+        return (number.matches("\\d"));
     }
 
     public void setCalculatorMode(CalculatorMode calculatorMode) {

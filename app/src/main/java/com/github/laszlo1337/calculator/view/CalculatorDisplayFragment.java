@@ -40,7 +40,12 @@ public final class CalculatorDisplayFragment extends Fragment implements Calcula
     @Override
     public void showCalculationResult(String result) {
         displayTextView.setText(result);
-        scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+        scrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                scrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
     }
 
     @Override

@@ -7,5 +7,7 @@ package com.github.laszlo1337.calculator.presenter.mode;
 public interface CalculatorMode {
     String performOperatorAction(String operator, String expression);
     String performSettableButtonAction(String expression);
+    String appendDecimal(String expression);
+    String deleteCharacter(String expression);
 }
 

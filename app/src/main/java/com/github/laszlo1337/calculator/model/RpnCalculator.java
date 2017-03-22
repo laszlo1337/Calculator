@@ -1,16 +1,13 @@
 package com.github.laszlo1337.calculator.model;
 
-import android.util.Log;
-
-import java.util.HashMap;
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
-import static com.github.laszlo1337.calculator.model.Symbols.DIVISION;
-import static com.github.laszlo1337.calculator.model.Symbols.LINE_BREAK;
-import static com.github.laszlo1337.calculator.model.Symbols.MINUS;
-import static com.github.laszlo1337.calculator.model.Symbols.MULTIPLICATION;
-import static com.github.laszlo1337.calculator.model.Symbols.PLUS;
-import static com.github.laszlo1337.calculator.model.Symbols.SPACE;
+import static com.github.laszlo1337.calculator.model.Helpers.LINE_BREAK;
+import static com.github.laszlo1337.calculator.model.Helpers.SPACE;
+import static com.github.laszlo1337.calculator.model.Operator.fromString;
+import static com.github.laszlo1337.calculator.model.Operator.isOperator;
 
 /**
  * Created by laszlo on 2017-03-12.
@@ -18,51 +15,24 @@ import static com.github.laszlo1337.calculator.model.Symbols.SPACE;
 
 public class RpnCalculator {
 
-    private HashMap<String, Integer> precedence;
-
     public RpnCalculator() {
-        precedence = new HashMap<>();
-        precedence.put(PLUS, 1);
-        precedence.put(MINUS, 1);
-        precedence.put(MULTIPLICATION, 2);
-        precedence.put(DIVISION, 2);
+
     }
 
 
-    public float eval(float arg1, float arg2, String operator) {
-        switch (operator) {
-            case PLUS:
-                return arg1 + arg2;
-            case MINUS:
-                return arg2 - arg1;
-            case MULTIPLICATION:
-                return arg1 * arg2;
-            case DIVISION:
-                return arg2 / arg1;
-            default:
-                return 0;
-        }
-    }
+    public String evaluate(String operator, String stringStack) {
+        String[] args = stringStack.split(LINE_BREAK);
+        if (args.length < 2) return stringStack;
 
-    public String evaluate(String operator, String expression) {
-        String[] args = expression.split(LINE_BREAK);
-        if (args.length < 2) {
-            return expression;
-        }
+        Deque<String> stack = new LinkedList<>();
+        for (String s : args) stack.push(s);
 
-        Stack<String> stack = new Stack<>();
-        for (String s : args) {
-            stack.push(s);
-        }
-
-        StringBuilder resultExpression = new StringBuilder();
-        float result = eval(Float.parseFloat(stack.pop()), Float.parseFloat(stack.pop()), operator);
+        float result = eval(Float.parseFloat(stack.pop()), Float.parseFloat(stack.pop()), Operator.fromString(operator));
         stack.push(format(result));
 
-        String[] resultArgs = new String[stack.size()];
-        stack.toArray(resultArgs);
-        for (String s : resultArgs) {
-            resultExpression.append(s);
+        StringBuilder resultExpression = new StringBuilder();
+        while (!stack.isEmpty()) {
+            resultExpression.append(stack.removeLast());
             resultExpression.append(LINE_BREAK);
         }
 
@@ -77,50 +47,41 @@ public class RpnCalculator {
         return Float.toString(f);
     }
 
-    // TODO: 2017-03-17 implement evaluation from infix expression
     public String evaluateInfixExpression(String expression) {
-        Stack<String> operators = new Stack<>();
-        String[] args = expression.split(SPACE);
-        Stack<String> values = new Stack<>();
+        Stack<Float> operands = new Stack<>();
+        Stack<Operator> operators = new Stack<>();
 
-        for (String arg : args) {
-            if (isANumber(arg)) {
-                values.push(arg);
-                continue;
-            }
-            if (operators.isEmpty()) {
-                operators.push(arg);
-            } else if (precedence.get(arg) < precedence.get(operators.peek())) {
-                float result = eval(Float.parseFloat(values.pop()), Float.parseFloat(values.pop()), operators.pop());
-                values.push(String.valueOf(result));
-                operators.push(arg);
-            } else if (precedence.get(arg) == precedence.get(operators.peek())) {
-                float result = eval(Float.parseFloat(values.pop()), Float.parseFloat(values.pop()), operators.pop());
-                values.push(String.valueOf(result));
-                operators.push(arg);
-            } else if (precedence.get(arg) > precedence.get(operators.peek())) {
-                operators.push(arg);
+        for (String token : expression.split(SPACE)) {
+            if (isOperator(token)) {
+                while (!operators.isEmpty() && operators.peek().hasHigherPrecedenceThan(token)) {
+                    operands.add(eval(operands.pop(), operands.pop(), operators.pop()));
+                }
+                operators.push(fromString(token));
+            } else {
+                operands.add(Float.valueOf(token));
             }
         }
-
 
         while (!operators.isEmpty()) {
-            float result = eval(Float.parseFloat(values.pop()), Float.parseFloat(values.pop()), operators.pop());
-            values.push(String.valueOf(result));
+            operands.add(eval(operands.pop(), operands.pop(), operators.pop()));
         }
-
-        Log.d("RPN_CALCULATOR", "result =" + values.pop());
-
-
-        return expression;
+        return format(operands.pop());
     }
 
-    public boolean isANumber(String number) {
-        if (number.matches("-?\\d+")) {
-            return true;
+    private Float eval(float arg2, float arg1, Operator operator) {
+        switch (operator) {
+            case ADD:
+                return arg1 + arg2;
+            case SUBTRACT:
+                return arg1 - arg2;
+            case MULTIPLY:
+                return arg1 * arg2;
+            case DIVIDE:
+                return arg1 / arg2;
+            default:
+                return 0f;
         }
-
-        return false;
     }
+
 
 }

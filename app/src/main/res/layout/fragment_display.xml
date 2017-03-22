@@ -29,7 +29,7 @@
             android:textColor="@color/displayDigitsColor"
             android:textSize="46sp"
             android:gravity="end"
-            android:lineSpacingMultiplier="0.9"
+            android:lineSpacingMultiplier="0.8"
             android:paddingTop="94dp"
             />
 

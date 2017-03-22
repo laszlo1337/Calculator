@@ -54,7 +54,6 @@ public final class CalculatorModel {
         calculationResultRelay.onResultObtained(true, DEFAULT_CALCULATOR_STATE);
     }
 
-    // TODO: 2017-03-15 find a way to append max 9 digits in one line
     public void appendNumber(String number) {
         /**
          * the first digit shouldn't be a zero

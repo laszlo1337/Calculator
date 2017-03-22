@@ -29,12 +29,6 @@ public final class CalculatorModel {
         calculationResultRelay.onResultObtained(true, exp);
     }
 
-    public void performSettableButtonAction() {
-        exp = calculatorMode.performSettableButtonAction(exp);
-        calculationResultRelay.onResultObtained(true, exp);
-    }
-
-
     public void deleteCharacter() {
         exp = calculatorMode.deleteCharacter(exp);
         if (exp.isEmpty()) {
@@ -42,7 +36,11 @@ public final class CalculatorModel {
         } else {
             calculationResultRelay.onResultObtained(true, exp);
         }
+    }
 
+    public void performSettableButtonAction() {
+        exp = calculatorMode.performSettableButtonAction(exp);
+        calculationResultRelay.onResultObtained(true, exp);
     }
 
     public void resetCalculatorState() {
@@ -55,16 +53,12 @@ public final class CalculatorModel {
     }
 
     public void appendNumber(String number) {
-        /**
-         * the first digit shouldn't be a zero
-         */
         if (exp.length() == 0 && number.equals("0")) {
             return;
         } else {
             exp += number;
             calculationResultRelay.onResultObtained(true, exp);
         }
-
     }
 
     public void appendDecimal() {

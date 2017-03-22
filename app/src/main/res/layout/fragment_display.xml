@@ -18,7 +18,7 @@
     <ScrollView
         android:id="@+id/display_scrollview"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/display_scrollview_height"
+        android:layout_height="match_parent"
         >
 
         <TextView
@@ -30,7 +30,7 @@
             android:textSize="46sp"
             android:gravity="end"
             android:lineSpacingMultiplier="0.8"
-            android:paddingTop="94dp"
+            android:paddingTop="107dp"
             />
 
     </ScrollView>

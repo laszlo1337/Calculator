@@ -39,7 +39,6 @@ public final class CalculatorModeBasic implements CalculatorMode {
         } else if (!expression.contains(DECIMAL_POINT)){
             return expression.concat(DECIMAL_POINT);
         }
-
         return expression;
     }
 

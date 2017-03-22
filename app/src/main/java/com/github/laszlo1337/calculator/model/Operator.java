@@ -3,6 +3,11 @@ package com.github.laszlo1337.calculator.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.github.laszlo1337.calculator.model.Helpers.DIVISION;
+import static com.github.laszlo1337.calculator.model.Helpers.MINUS;
+import static com.github.laszlo1337.calculator.model.Helpers.MULTIPLICATION;
+import static com.github.laszlo1337.calculator.model.Helpers.PLUS;
+
 /**
  * Created by laszlo on 2017-03-21.
  */
@@ -16,10 +21,10 @@ public enum Operator {
     }
 
     private static Map<String, Operator> operators = new HashMap<String, Operator>(){{
-        put("+", Operator.ADD);
-        put("-", Operator.SUBTRACT);
-        put("÷", Operator.DIVIDE);
-        put("×", Operator.MULTIPLY);
+        put(PLUS, Operator.ADD);
+        put(MINUS, Operator.SUBTRACT);
+        put(DIVISION, Operator.DIVIDE);
+        put(MULTIPLICATION, Operator.MULTIPLY);
     }};
 
     public static Operator fromString(String token){

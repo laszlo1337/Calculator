@@ -5,7 +5,8 @@
     android:baselineAligned="false"
     android:elevation="1dp"
     android:orientation="horizontal"
-    tools:context="com.github.laszlo1337.calculator.view.CalculatorActivity">
+    tools:context="com.github.laszlo1337.calculator.view.CalculatorActivity"
+    >
 
     <LinearLayout
         android:layout_width="0dp"
@@ -60,7 +61,8 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        >
 
         <Button
             android:id="@+id/btn_divide"
@@ -84,7 +86,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="5" />
+            android:text="5"
+            />
 
         <Button
             android:id="@+id/btn_number_two"

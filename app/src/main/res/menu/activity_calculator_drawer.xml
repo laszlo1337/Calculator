@@ -3,7 +3,7 @@
 
     <item
         android:enabled="false"
-        android:title="available modes:"
+        android:title="Available modes:"
         android:icon="@drawable/ic_menu_manage"
         />
 
@@ -11,11 +11,11 @@
 
         <item
             android:id="@+id/mode_rpn"
-            android:icon="@drawable/ic_menu_share"
+            android:icon="@drawable/ic_postfix"
             android:title="RPN mode (default)" />
         <item
             android:id="@+id/mode_basic"
-            android:icon="@drawable/ic_menu_send"
+            android:icon="@drawable/ic_infix"
             android:title="basic mode" />
 
     </group>

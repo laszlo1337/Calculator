@@ -55,6 +55,7 @@
             android:clickable="false">
 
             <Button
+                android:clickable="false"
                 android:layout_width="25dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="10dp"

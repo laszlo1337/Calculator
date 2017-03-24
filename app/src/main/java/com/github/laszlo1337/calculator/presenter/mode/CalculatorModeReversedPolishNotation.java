@@ -12,8 +12,8 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
 
     private RpnCalculator rpnCalculator;
 
-    public CalculatorModeReversedPolishNotation(RpnCalculator rpnCalculator) {
-        this.rpnCalculator = rpnCalculator;
+    public CalculatorModeReversedPolishNotation() {
+        this.rpnCalculator = new RpnCalculator();
     }
 
     @Override

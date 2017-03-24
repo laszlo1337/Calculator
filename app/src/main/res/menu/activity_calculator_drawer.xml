@@ -3,9 +3,8 @@
 
     <item
         android:enabled="false"
-        android:title="Available modes:"
         android:icon="@drawable/ic_menu_manage"
-        />
+        android:title="Available modes:" />
 
     <group android:checkableBehavior="single">
 

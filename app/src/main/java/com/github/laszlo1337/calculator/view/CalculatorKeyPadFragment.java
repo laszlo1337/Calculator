@@ -66,7 +66,7 @@ public final class CalculatorKeyPadFragment extends Fragment implements Calculat
         calculatorPresenter.onOperatorClick((String) button.getText());
     }
 
-    @OnClick(R.id.btn_period)
+    @OnClick(R.id.btn_decimal)
     @Override
     public void onDecimalClick(Button button) {
         calculatorPresenter.onDecimalClick();

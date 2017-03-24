@@ -9,7 +9,6 @@ import static com.github.laszlo1337.calculator.model.Helpers.MINUS;
 
 public final class CalculatorModel {
 
-
     //renamed currentExpression to exp because it was too long//
     private String exp;
     private CalculatorMode calculatorMode;

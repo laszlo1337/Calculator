@@ -17,7 +17,10 @@ import butterknife.ButterKnife;
 
 public final class CalculatorActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.drawer_layout) DrawerLayout drawer;
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawer;
+    @BindView(R.id.nav_view)
+    NavigationView navigationView;
 
     private CalculatorPresenter.ModeSelectorRelay selectMode;
 
@@ -29,8 +32,8 @@ public final class CalculatorActivity extends AppCompatActivity implements Navig
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setItemIconTintList(null);
 
         CalculatorDisplayFragment calculatorDisplayFragment = (CalculatorDisplayFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_display);
         CalculatorKeyPadFragment calculatorKeyPadFragment = (CalculatorKeyPadFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_input);

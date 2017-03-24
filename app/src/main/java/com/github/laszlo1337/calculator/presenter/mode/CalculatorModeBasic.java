@@ -11,8 +11,8 @@ public final class CalculatorModeBasic implements CalculatorMode {
 
     private final RpnCalculator rpnCalculator;
 
-    public CalculatorModeBasic(RpnCalculator rpnCalculator) {
-        this.rpnCalculator = rpnCalculator;
+    public CalculatorModeBasic() {
+        this.rpnCalculator = new RpnCalculator();
     }
 
     @Override

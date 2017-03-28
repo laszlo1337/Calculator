@@ -18,7 +18,10 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
 
     @Override
     public String performOperatorAction(String operator, String expression) {
-        return rpnCalculator.evaluate(operator, expression);
+        if(isValid(expression)) {
+            return rpnCalculator.evaluate(operator, expression);
+        }
+        return expression;
     }
 
     @Override
@@ -59,5 +62,12 @@ public class CalculatorModeReversedPolishNotation implements CalculatorMode {
         return expression.substring(0, expression.length() - 1);
     }
 
-
+    private boolean isValid(String exp){
+        for(String arg : exp.split(LINE_BREAK)){
+            if (!arg.matches("-?\\d+")){
+                return false;
+            }
+        }
+        return true;
+    }
 }

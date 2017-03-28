@@ -25,6 +25,7 @@
 
         <Button
             android:clickable="false"
+            android:enabled="false"
             android:layout_width="20dp"
             android:layout_height="60dp"
             android:layout_marginBottom="10dp"
